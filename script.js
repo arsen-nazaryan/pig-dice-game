@@ -79,7 +79,7 @@ holdBtn.addEventListener('click', function() {
         let audio = new Audio('media/hold.mp3');
         audio.play();
 
-        if (scores[activePlayer] >= 5) {
+        if (scores[activePlayer] >= 100) {
             playing = false;
 
             let audio = new Audio('media/winner.mp3');
