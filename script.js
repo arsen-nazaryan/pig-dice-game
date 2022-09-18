@@ -30,6 +30,9 @@ const NewGame = function() {
     playerP2.classList.remove('win-game');
     playerP1.classList.add('active_player');
     playerP2.classList.remove('active_player');
+
+    let audio = new Audio('media/start.mp3');
+    audio.play();
 };
 NewGame();
 
@@ -54,7 +57,11 @@ rollBtn.addEventListener('click', function() {
             document.getElementById(
                 `current_${activePlayer}`
             ).textContent = currentScore;
+            let audio = new Audio('media/dice_rolling.mp3');
+            audio.play();
         } else {
+            let audio = new Audio('media/dice_rollingN1.mp3');
+            audio.play();
             switchPlayer();
         }
     }
@@ -69,8 +76,14 @@ holdBtn.addEventListener('click', function() {
 
         diceIcon.src = `images/dice-0.png`;
 
-        if (scores[activePlayer] >= 100) {
+        let audio = new Audio('media/hold.mp3');
+        audio.play();
+
+        if (scores[activePlayer] >= 5) {
             playing = false;
+
+            let audio = new Audio('media/winner.mp3');
+            audio.play();
 
             document.querySelector(`.player_${activePlayer}`).classList.add('win-game');
 
